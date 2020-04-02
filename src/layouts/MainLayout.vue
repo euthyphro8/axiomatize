@@ -8,7 +8,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
+          @click="toggleDrawer"
         />
 
         <q-toolbar-title>
@@ -64,26 +64,26 @@ export default {
           link: "#/1-1"
         },
         {
-          title: "Level Two",
-          caption: "",
+          title: "4-Point Geometry",
+          caption: "Explore the Axioms of a 4-Point Geometry",
           icon: "looks_two",
           link: "#/1-2"
         },
         {
-          title: "Level Three",
-          caption: "",
+          title: "Fano's Geometry",
+          caption: "Explore Fano's Axioms",
           icon: "looks_3",
           link: "#/1-3"
         },
         {
-          title: "Level Four",
-          caption: "",
+          title: "Young's Geometry",
+          caption: "Explore Young's Axioms",
           icon: "looks_4",
           link: "#/1-4"
         },
         {
-          title: "Level Five",
-          caption: "",
+          title: "Pappus Geometry",
+          caption: "Explore Pappus' Axioms",
           icon: "looks_5",
           link: "#/1-5"
         },
@@ -95,6 +95,26 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    toggleDrawer() {
+      this.leftDrawerOpen = !this.leftDrawerOpen;
+      let i = 15;
+      const resize = callback => {
+        this.$root.$emit("toggleDrawerEvent", this.leftDrawerOpen);
+        if (i > 0) {
+          setTimeout(callback, 15, callback);
+          i -= 1;
+        }
+      };
+      resize(resize);
+    }
   }
 };
 </script>
+
+<style>
+* {
+  overflow: hidden;
+}
+</style>
