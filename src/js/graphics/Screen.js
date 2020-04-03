@@ -42,6 +42,21 @@ export default class Screen {
     }
   }
 
+  renderPoint(point) {
+    if (!this.context) return;
+    const r = 5;
+    const w = this.context.canvas.width;
+    const h = this.context.canvas.height;
+    const ar = w / h;
+    const sx = w / this.scale;
+    const sy = h / (this.scale * ar);
+
+    const px = sx * point.x;
+    const py = sy * point.y;
+    this.context.moveTo(px, py);
+    this.context.ellipse(px, py, r * ar, r / ar, 0, 0, 2 * Math.PI);
+  }
+
   renderPoints(points) {
     if (!this.context) return;
     const r = 5;

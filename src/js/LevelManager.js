@@ -19,14 +19,21 @@ export default class LevelManager {
     this.screen.renderGrid();
     this.screen.end(false, true);
 
-    //Points
-    this.screen.begin(ctx, this.pointColor, 0);
-    this.screen.renderPoints(data.points);
-    this.screen.end(true, true);
-
-    // // Lines
+    // Lines
     this.screen.begin(ctx, this.lineColor, 2);
     this.screen.renderLines(data.lines);
     this.screen.end(true, false);
+
+    //Points
+    this.screen.begin(ctx, this.pointColor, 2);
+    this.screen.renderPoints(data.points);
+    this.screen.end(true, true);
+
+    //Selected
+    if (data.selected) {
+      this.screen.begin(ctx, "#0000ff", 2);
+      this.screen.renderPoint(data.selected);
+      this.screen.end(true, true);
+    }
   }
 }
