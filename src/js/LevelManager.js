@@ -14,10 +14,10 @@ export default class LevelManager {
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     this.screen.end();
 
-    //Grid
-    this.screen.begin(ctx, this.pointColor, 2);
-    this.screen.renderGrid();
-    this.screen.end(false, true);
+    // //Grid
+    // this.screen.begin(ctx, this.pointColor, 2);
+    // this.screen.renderGrid();
+    // this.screen.end(false, true);
 
     // Lines
     this.screen.begin(ctx, this.lineColor, 2);
@@ -39,7 +39,7 @@ export default class LevelManager {
     //Highlighted
     if (data.highlighted) {
       this.screen.begin(ctx, "#00ff00", 4);
-      this.screen.renderPoint(data.selected, 10);
+      this.screen.renderPoint(data.highlighted, 10);
       this.screen.end(true, false);
     }
   }
