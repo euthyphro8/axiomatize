@@ -1,120 +1,80 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleDrawer"
-        />
-
-        <q-toolbar-title>
-          Axiomatize
-        </q-toolbar-title>
-
-        <div>Axiomatize v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label header class="text-grey-8">
-          Levels | Beginner
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
-      <router-view />
+      <q-page>
+        <div class="play">
+          <q-btn
+            style="width: 100%; height: 100%; max-width: 60vh; min-height: 30vh;"
+            outline
+            rounded
+            :to="{ name: 'Menu' }"
+          >
+            <q-icon
+              class="col-8"
+              style="width:100%; height:60%;"
+              name="play_arrow"
+              size="30vh"
+              active="primary"
+            >
+            </q-icon>
+            <div
+              style="width: 100%; height: 40%; 
+                  font-size: 10vh;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;"
+            >
+              Play
+            </div>
+          </q-btn>
+        </div>
+        <div class="logo">
+          <img src="~assets/TitleScreenCenter.svg" />
+        </div>
+      </q-page>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink";
-
 export default {
   name: "MainLayout",
 
-  components: {
-    EssentialLink
-  },
+  components: {},
 
   data() {
-    return {
-      leftDrawerOpen: false,
-      essentialLinks: [
-        {
-          title: "3-Point Geometry",
-          caption: "Explore the Axioms of a 3-Point Geometry",
-          icon: "looks_one",
-          link: "#/1-1"
-        },
-        {
-          title: "4-Point Geometry",
-          caption: "Explore the Axioms of a 4-Point Geometry",
-          icon: "looks_two",
-          link: "#/1-2"
-        },
-        {
-          title: "Fano's Geometry",
-          caption: "Explore Fano's Axioms",
-          icon: "looks_3",
-          link: "#/1-3"
-        },
-        {
-          title: "Young's Geometry",
-          caption: "Explore Young's Axioms",
-          icon: "looks_4",
-          link: "#/1-4"
-        },
-        {
-          title: "Pappus Geometry",
-          caption: "Explore Pappus' Axioms",
-          icon: "looks_5",
-          link: "#/1-5"
-        },
-        {
-          title: "Level Six",
-          caption: "",
-          icon: "looks_6",
-          link: "#/1-6"
-        }
-      ]
-    };
+    return {};
   },
-  methods: {
-    toggleDrawer() {
-      this.leftDrawerOpen = !this.leftDrawerOpen;
-      let i = 15;
-      const resize = callback => {
-        this.$root.$emit("toggleDrawerEvent", this.leftDrawerOpen);
-        if (i > 0) {
-          setTimeout(callback, 15, callback);
-          i -= 1;
-        }
-      };
-      resize(resize);
-    }
-  }
+  methods: {}
 };
 </script>
 
-<style>
-* {
-  overflow: hidden;
+<style scoped>
+.main {
+  height: 100%;
+  width: 100%;
+}
+.play {
+  position: absolute;
+  top: 64px;
+  bottom: calc(50% + 64px);
+  left: 20%;
+  right: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play > i {
+  font-size: 20em;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+}
+.logo > img {
+  height: 100%;
+  width: 100%;
 }
 </style>

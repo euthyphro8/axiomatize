@@ -6,6 +6,15 @@
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App"
+};
 </script>
+
+<style>
+* {
+  overflow: hidden;
+}
+body {
+  overflow: hidden;
+}
+</style>

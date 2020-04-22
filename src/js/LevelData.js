@@ -5,6 +5,9 @@ export default class LevelData {
   constructor() {
     this.points = [];
     this.lines = [];
+    this.selected = null;
+    this.phantom = null;
+    this.highlighted = null;
   }
   addPoint(point) {
     let isOldPoint = false;

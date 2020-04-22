@@ -42,9 +42,8 @@ export default class Screen {
     }
   }
 
-  renderPoint(point) {
+  renderPoint(point, r = 5) {
     if (!this.context) return;
-    const r = 5;
     const w = this.context.canvas.width;
     const h = this.context.canvas.height;
     const ar = w / h;

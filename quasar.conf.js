@@ -43,7 +43,22 @@ module.exports = function(ctx) {
       directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: [],
+      config: {
+        dark: true,
+        brand: {
+          primary: "#f2c037",
+          secondary: "#d47e2f",
+          accent: "#e41414",
+
+          dark: "#1d1d1d",
+
+          positive: "#21BA45",
+          negative: "#C10015",
+          info: "#31CCEC",
+          warning: "#F2C037"
+        }
+      }
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
@@ -103,7 +118,7 @@ module.exports = function(ctx) {
         display: "standalone",
         orientation: "portrait",
         background_color: "#ffffff",
-        theme_color: "#027be3",
+        theme_color: "#f2c037",
         icons: [
           {
             src: "statics/icons/icon-128x128.png",

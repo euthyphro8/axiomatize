@@ -35,5 +35,12 @@ export default class LevelManager {
       this.screen.renderPoint(data.selected);
       this.screen.end(true, true);
     }
+
+    //Highlighted
+    if (data.highlighted) {
+      this.screen.begin(ctx, "#00ff00", 4);
+      this.screen.renderPoint(data.selected, 10);
+      this.screen.end(true, false);
+    }
   }
 }

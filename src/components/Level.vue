@@ -5,17 +5,22 @@
 </template>
 
 <script>
+import WinCheck from "../js/WinCheck";
 import LevelData from "../js/LevelData";
 import LevelManager from "../js/LevelManager";
 import LevelController from "../js/LevelController";
 
 export default {
   name: "Level",
+  props: {
+    levelId: String
+  },
   mounted() {
     // Get canvas and context
     this.data = new LevelData();
     this.level = new LevelManager();
     this.controller = new LevelController(this.$refs["screen"]);
+    this.check = new WinCheck();
 
     // Register listeners
     this.onResize();
@@ -30,7 +35,10 @@ export default {
       });
 
       // Update controller and apply to data
-      this.controller.update(this.data);
+      if (this.controller.update(this.data)) {
+        let result = this.check.check(this.levelId, this.data);
+        this.$emit("checkResult", result);
+      }
       this.level.render(ctx, this.data);
 
       requestAnimationFrame(this.tick.bind(this));
