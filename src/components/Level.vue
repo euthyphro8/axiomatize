@@ -15,18 +15,29 @@ export default {
   props: {
     levelId: String
   },
+  data() {
+    return {
+      request: null
+    };
+  },
   mounted() {
     // Get canvas and context
+    this.checkFlag = false;
     this.data = new LevelData();
     this.level = new LevelManager();
     this.controller = new LevelController(this.$refs["screen"]);
     this.check = new WinCheck();
 
+    this.$store.commit("registerUndoCallback", this.undoCallback.bind(this));
+    this.$store.commit("registerRedoCallback", this.redoCallback.bind(this));
     // Register listeners
     this.onResize();
     window.addEventListener("resize", this.onResize.bind(this));
     this.$root.$on("toggleDrawerEvent", this.onResize.bind(this));
-    requestAnimationFrame(this.tick.bind(this));
+    this.request = requestAnimationFrame(this.tick.bind(this));
+  },
+  beforeDestroy() {
+    cancelAnimationFrame(this.request);
   },
   methods: {
     tick(time) {
@@ -35,20 +46,29 @@ export default {
       });
 
       // Update controller and apply to data
-      if (this.controller.update(this.data)) {
+      if (this.controller.update(this.data) || this.checkFlag) {
+        this.checkFlag = false;
         let result = this.check.check(this.levelId, this.data);
         this.$emit("checkResult", result);
       }
       this.level.render(ctx, this.data);
 
-      requestAnimationFrame(this.tick.bind(this));
+      this.request = requestAnimationFrame(this.tick.bind(this));
     },
     onResize() {
       const canvas = this.$refs["screen"];
-      const h = canvas.offsetWidth;
-      const w = canvas.offsetHeight;
-      canvas.width = w * 2;
-      canvas.height = h * 2;
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      canvas.width = w;
+      canvas.height = h;
+    },
+    undoCallback() {
+      this.checkFlag = true;
+      this.data.undo();
+    },
+    redoCallback() {
+      this.checkFlag = true;
+      this.data.redo();
     }
   }
 };

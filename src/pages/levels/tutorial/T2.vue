@@ -3,6 +3,7 @@
     <Level :levelId="id" v-on:checkResult="updateComplete" />
     <Hud
       :levelTitle="title"
+      :levelSubtitle="subtitle"
       :infoItems="axioms"
       :lastName="last"
       :nextName="next"
@@ -23,9 +24,10 @@ export default {
   data() {
     return {
       id: "0-2",
-      title: "Tutorial 02",
+      title: "Tutorial 2",
+      subtitle: "Where I Draw the Line",
       last: "T1",
-      next: null,
+      next: "B1",
       axioms: [
         {
           objective: 1,
@@ -38,10 +40,8 @@ export default {
   mounted() {},
   methods: {
     updateComplete(result) {
-      console.log(`Got results: ${JSON.stringify(result)}`);
       for (let a of this.axioms) {
         a.complete = result[a.objective - 1];
-        console.log(JSON.stringify(a));
       }
     }
   }

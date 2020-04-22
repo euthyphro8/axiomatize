@@ -1,7 +1,5 @@
 export default class Screen {
-  constructor() {
-    this.scale = 100;
-  }
+  constructor() {}
 
   begin(context, color = "#e4f03d", lineWidth = 3) {
     this.context = context;
@@ -24,66 +22,46 @@ export default class Screen {
     this.context = null;
   }
 
-  renderGrid() {
+  // renderGrid() {
+  //   if (!this.context) return;
+  //   const r = 1;
+  //   const w = this.context.canvas.width;
+  //   const h = this.context.canvas.height;
+  //   const ar = w / h;
+  //   const sx = w / this.scale;
+  //   const sy = h / (this.scale * ar);
+  //   for (let y = 0; y < this.scale; y++) {
+  //     for (let x = 0; x < this.scale; x++) {
+  //       const px = sx * x;
+  //       const py = sy * y;
+  //       this.context.moveTo(px, py);
+  //       this.context.ellipse(px, py, r * ar, r / ar, 0, 0, 2 * Math.PI);
+  //     }
+  //   }
+  // }
+
+  renderPoint(point, r) {
     if (!this.context) return;
-    const r = 1;
-    const w = this.context.canvas.width;
-    const h = this.context.canvas.height;
-    const ar = w / h;
-    const sx = w / this.scale;
-    const sy = h / (this.scale * ar);
-    for (let y = 0; y < this.scale; y++) {
-      for (let x = 0; x < this.scale; x++) {
-        const px = sx * x;
-        const py = sy * y;
-        this.context.moveTo(px, py);
-        this.context.ellipse(px, py, r * ar, r / ar, 0, 0, 2 * Math.PI);
-      }
-    }
+
+    this.context.moveTo(point.x + r, point.y);
+    this.context.ellipse(point.x, point.y, r, r, 0, 0, 2 * Math.PI);
   }
 
-  renderPoint(point, r = 5) {
+  renderPoints(points, r) {
     if (!this.context) return;
-    const w = this.context.canvas.width;
-    const h = this.context.canvas.height;
-    const ar = w / h;
-    const sx = w / this.scale;
-    const sy = h / (this.scale * ar);
-
-    const px = sx * point.x;
-    const py = sy * point.y;
-    this.context.moveTo(px, py);
-    this.context.ellipse(px, py, r * ar, r / ar, 0, 0, 2 * Math.PI);
-  }
-
-  renderPoints(points) {
-    if (!this.context) return;
-    const r = 5;
-    const w = this.context.canvas.width;
-    const h = this.context.canvas.height;
-    const ar = w / h;
-    const sx = w / this.scale;
-    const sy = h / (this.scale * ar);
 
     for (let p of points) {
-      const px = sx * p.x;
-      const py = sy * p.y;
-      this.context.moveTo(px, py);
-      this.context.ellipse(px, py, r * ar, r / ar, 0, 0, 2 * Math.PI);
+      this.context.moveTo(p.x, p.y);
+      this.context.ellipse(p.x, p.y, r, r, 0, 0, 2 * Math.PI);
     }
   }
 
   renderLines(lines) {
     if (!this.context) return;
-    const w = this.context.canvas.width;
-    const h = this.context.canvas.height;
-    const ar = w / h;
-    const sx = w / this.scale;
-    const sy = h / (this.scale * ar);
 
     for (let l of lines) {
-      this.context.moveTo(l.a.x * sx, l.a.y * sy);
-      this.context.lineTo(l.b.x * sx, l.b.y * sy);
+      this.context.moveTo(l.p1().x, l.p1().y);
+      this.context.lineTo(l.p2().x, l.p2().y);
     }
   }
 }

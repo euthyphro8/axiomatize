@@ -13,9 +13,30 @@ Vue.use(Vuex);
  * async/await or return a Promise which resolves
  * with the Store instance.
  */
-
 export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
+    state: {
+      undoCallback: null,
+      redoCallback: null
+    },
+    mutations: {
+      registerUndoCallback(state, cb) {
+        state.undoCallback = cb;
+      },
+      registerRedoCallback(state, cb) {
+        state.redoCallback = cb;
+      },
+      emitUndoCallback(state) {
+        if (state.undoCallback) {
+          state.undoCallback();
+        }
+      },
+      emitRedoCallback(state) {
+        if (state.redoCallback) {
+          state.redoCallback();
+        }
+      }
+    },
     modules: {
       // example
     },

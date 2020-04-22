@@ -1,0 +1,99 @@
+Date : 2020-04-21 22:29:00
+Directory : c:\Storage\Repos\Web\Axiomatize
+Total : 48 files,  1492 codes, 201 comments, 179 blanks, all 1872 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Vue        |         11 |        606 |          5 |         48 |        659 |
+| JavaScript |         21 |        554 |        150 |        104 |        808 |
+| XML        |          7 |        227 |          1 |          3 |        231 |
+| JSON       |          2 |         43 |         31 |          1 |         75 |
+| Markdown   |          1 |         20 |          0 |          7 |         27 |
+| HTML       |          1 |         19 |          1 |          3 |         23 |
+| Properties |          1 |          8 |          0 |          2 |         10 |
+| Sass       |          2 |          8 |         11 |          8 |         27 |
+| TypeScript |          1 |          6 |          2 |          2 |         10 |
+| Ignore     |          1 |          1 |          0 |          1 |          2 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                    | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                       |         48 |      1,492 |        201 |        179 |      1,872 |
+| src                                                                     |         39 |      1,267 |        106 |        129 |      1,502 |
+| src\assets                                                              |          6 |        226 |          1 |          3 |        230 |
+| src\boot                                                                |          1 |          3 |          0 |          2 |          5 |
+| src\components                                                          |          2 |        236 |          3 |         12 |        251 |
+| src\css                                                                 |          2 |          8 |         11 |          8 |         27 |
+| src\js                                                                  |          8 |        264 |         61 |         41 |        366 |
+| src\js\graphics                                                         |          1 |         36 |         23 |          9 |         68 |
+| src\js\math                                                             |          2 |         34 |          0 |          7 |         41 |
+| src\layouts                                                             |          3 |        209 |          2 |         20 |        231 |
+| src\pages                                                               |          5 |        143 |          0 |         13 |        156 |
+| src\pages\levels                                                        |          3 |        106 |          0 |          9 |        115 |
+| src\pages\levels\beginner                                               |          1 |         12 |          0 |          3 |         15 |
+| src\pages\levels\tutorial                                               |          2 |         94 |          0 |          6 |        100 |
+| src\router                                                              |          2 |         80 |         12 |         10 |        102 |
+| src\statics                                                             |          1 |          1 |          0 |          0 |          1 |
+| src\statics\icons                                                       |          1 |          1 |          0 |          0 |          1 |
+| src\store                                                               |          7 |         60 |         15 |         14 |         89 |
+| src\store\module-example                                                |          5 |         21 |          1 |          6 |         28 |
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Storage\Repos\Web\Axiomatize\.editorconfig                           | Properties |          8 |          0 |          2 |         10 |
+| c:\Storage\Repos\Web\Axiomatize\.eslintignore                           | Ignore     |          1 |          0 |          1 |          2 |
+| c:\Storage\Repos\Web\Axiomatize\.eslintrc.js                            | JavaScript |         31 |          8 |          8 |         47 |
+| c:\Storage\Repos\Web\Axiomatize\.postcssrc.js                           | JavaScript |          5 |          2 |          2 |          9 |
+| c:\Storage\Repos\Web\Axiomatize\README.md                               | Markdown   |         20 |          0 |          7 |         27 |
+| c:\Storage\Repos\Web\Axiomatize\babel.config.js                         | JavaScript |          5 |          0 |          1 |          6 |
+| c:\Storage\Repos\Web\Axiomatize\jsconfig.json                           | JSON       |          5 |         31 |          0 |         36 |
+| c:\Storage\Repos\Web\Axiomatize\package.json                            | JSON       |         38 |          0 |          1 |         39 |
+| c:\Storage\Repos\Web\Axiomatize\quasar.conf.js                          | JavaScript |        112 |         54 |         28 |        194 |
+| c:\Storage\Repos\Web\Axiomatize\src\App.vue                             | Vue        |         18 |          0 |          3 |         21 |
+| c:\Storage\Repos\Web\Axiomatize\src\assets\IconSuperLarge.svg           | XML        |          9 |          0 |          0 |          9 |
+| c:\Storage\Repos\Web\Axiomatize\src\assets\TitleScreen1000.svg          | XML        |          9 |          0 |          0 |          9 |
+| c:\Storage\Repos\Web\Axiomatize\src\assets\TitleScreen2000.svg          | XML        |          9 |          0 |          0 |          9 |
+| c:\Storage\Repos\Web\Axiomatize\src\assets\TitleScreenCenter.svg        | XML        |          9 |          0 |          0 |          9 |
+| c:\Storage\Repos\Web\Axiomatize\src\assets\quasar-logo-full.svg         | XML        |        189 |          1 |          2 |        192 |
+| c:\Storage\Repos\Web\Axiomatize\src\assets\sad.svg                      | XML        |          1 |          0 |          1 |          2 |
+| c:\Storage\Repos\Web\Axiomatize\src\boot\axios.js                       | JavaScript |          3 |          0 |          2 |          5 |
+| c:\Storage\Repos\Web\Axiomatize\src\components\Hud.vue                  | Vue        |        167 |          0 |          5 |        172 |
+| c:\Storage\Repos\Web\Axiomatize\src\components\Level.vue                | Vue        |         69 |          3 |          7 |         79 |
+| c:\Storage\Repos\Web\Axiomatize\src\css\app.sass                        | Sass       |          0 |          1 |          1 |          2 |
+| c:\Storage\Repos\Web\Axiomatize\src\css\quasar.variables.sass           | Sass       |          8 |         10 |          7 |         25 |
+| c:\Storage\Repos\Web\Axiomatize\src\index.template.html                 | HTML       |         19 |          1 |          3 |         23 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\Data.js                          | JavaScript |          1 |          0 |          1 |          2 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\LevelController.js               | JavaScript |         59 |          2 |          6 |         67 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\LevelData.js                     | JavaScript |         89 |         21 |          6 |        116 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\LevelManager.js                  | JavaScript |         30 |          9 |          8 |         47 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\WinCheck.js                      | JavaScript |         15 |          6 |          4 |         25 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\graphics\Screen.js               | JavaScript |         36 |         23 |          9 |         68 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\math\Line.js                     | JavaScript |          7 |          0 |          2 |          9 |
+| c:\Storage\Repos\Web\Axiomatize\src\js\math\Point.js                    | JavaScript |         27 |          0 |          5 |         32 |
+| c:\Storage\Repos\Web\Axiomatize\src\layouts\GameLayout.vue              | Vue        |         20 |          0 |          5 |         25 |
+| c:\Storage\Repos\Web\Axiomatize\src\layouts\MainLayout.vue              | Vue        |         76 |          0 |          5 |         81 |
+| c:\Storage\Repos\Web\Axiomatize\src\layouts\MenuLayout.vue              | Vue        |        113 |          2 |         10 |        125 |
+| c:\Storage\Repos\Web\Axiomatize\src\pages\Error404.vue                  | Vue        |         24 |          0 |          2 |         26 |
+| c:\Storage\Repos\Web\Axiomatize\src\pages\Index.vue                     | Vue        |         13 |          0 |          2 |         15 |
+| c:\Storage\Repos\Web\Axiomatize\src\pages\levels\beginner\B1.vue        | Vue        |         12 |          0 |          3 |         15 |
+| c:\Storage\Repos\Web\Axiomatize\src\pages\levels\tutorial\T1.vue        | Vue        |         47 |          0 |          3 |         50 |
+| c:\Storage\Repos\Web\Axiomatize\src\pages\levels\tutorial\T2.vue        | Vue        |         47 |          0 |          3 |         50 |
+| c:\Storage\Repos\Web\Axiomatize\src\router\index.js                     | JavaScript |         16 |         11 |          7 |         34 |
+| c:\Storage\Repos\Web\Axiomatize\src\router\routes.js                    | JavaScript |         64 |          1 |          3 |         68 |
+| c:\Storage\Repos\Web\Axiomatize\src\statics\icons\safari-pinned-tab.svg | XML        |          1 |          0 |          0 |          1 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\index.js                      | JavaScript |         33 |         12 |          6 |         51 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\module-example\actions.js     | JavaScript |          2 |          0 |          1 |          3 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\module-example\getters.js     | JavaScript |          2 |          0 |          1 |          3 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\module-example\index.js       | JavaScript |         11 |          0 |          2 |         13 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\module-example\mutations.js   | JavaScript |          2 |          0 |          1 |          3 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\module-example\state.js       | JavaScript |          4 |          1 |          1 |          6 |
+| c:\Storage\Repos\Web\Axiomatize\src\store\store-flag.d.ts               | TypeScript |          6 |          2 |          2 |         10 |
+| Total                                                                   |            |      1,492 |        201 |        179 |      1,872 |
++-------------------------------------------------------------------------+------------+------------+------------+------------+------------+

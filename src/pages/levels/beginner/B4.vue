@@ -23,30 +23,37 @@ export default {
   },
   data() {
     return {
-      id: "1-1",
-      title: "Beginner 1",
-      subtitle: "3 Point Geometry",
-      last: "T2",
-      next: "B2",
+      id: "1-4",
+      title: "Beginner 4",
+      subtitle: "Young's Geometry",
+      last: "B3",
+      next: "B5",
       axioms: [
         {
           objective: 1,
-          description: "There exist exactly three points.",
+          description: "There exist at least one line.",
           complete: false
         },
         {
           objective: 2,
-          description: "Two distinct points are on exactly one line",
+          description: "There are exactly three points on every line.",
           complete: false
         },
         {
           objective: 3,
-          description: "Not all the three points are collinear.",
+          description: "Not all points are on the same line.",
           complete: false
         },
         {
           objective: 4,
-          description: "Two distinct lines are on at least one point.",
+          description: "There is exactly one line on any two distinct points.",
+          complete: false
+        },
+        {
+          objective: 5,
+          description:
+            "For each line l and each point P not on l, there exists exactly " +
+            "one line on P that does not contain any points on l.",
           complete: false
         }
       ]

@@ -2,7 +2,7 @@ import Screen from "./graphics/Screen";
 
 export default class LevelManager {
   constructor() {
-    this.backgroundColor = "#ffffff";
+    this.backgroundColor = "#f2c037";
     this.pointColor = "#000000";
     this.lineColor = "#000000";
     this.screen = new Screen();
@@ -26,20 +26,20 @@ export default class LevelManager {
 
     //Points
     this.screen.begin(ctx, this.pointColor, 2);
-    this.screen.renderPoints(data.points);
+    this.screen.renderPoints(data.points, 4);
     this.screen.end(true, true);
 
     //Selected
     if (data.selected) {
-      this.screen.begin(ctx, "#0000ff", 2);
-      this.screen.renderPoint(data.selected);
+      this.screen.begin(ctx, "#F33838", 2);
+      this.screen.renderPoint(data.selected, 4);
       this.screen.end(true, true);
     }
 
     //Highlighted
     if (data.highlighted) {
-      this.screen.begin(ctx, "#00ff00", 4);
-      this.screen.renderPoint(data.highlighted, 10);
+      this.screen.begin(ctx, "#F37138", 3);
+      this.screen.renderPoint(data.highlighted, 6);
       this.screen.end(true, false);
     }
   }

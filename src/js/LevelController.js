@@ -2,13 +2,13 @@ import Point from "./math/Point";
 
 export default class LevelController {
   constructor(canvas) {
-    this.scale = 100;
-    this.highlightDistance = 3;
     this.canvas = canvas;
     this.clickPosition = new Point();
     this.clickThisTick = false;
     this.mousePosition = new Point();
     this.mouseDirty = false;
+    this.highlightDistance = 50;
+    this.lineSnapDistance = 20;
     this.registerEvents();
   }
 
@@ -24,13 +24,22 @@ export default class LevelController {
   update(data) {
     if (this.clickThisTick) {
       this.clickThisTick = false;
-      data.addPoint(this.clickPosition);
+      if (data.highlighted) {
+        // This case to be considered for adding lines
+        data.addPoint(data.highlighted);
+      } else if (data.phantom) {
+        data.addPointToLine(data.phantom.point, data.phantom.line);
+        data.phantom = null;
+      } else {
+        data.addPoint(this.clickPosition);
+      }
       this.clickPosition = new Point();
-      data.highlighted = null;
+      // data.highlighted = null;
       return true;
     } else {
       if (this.mouseDirty) {
         this.mouseDirty = false;
+        // Check if we're close to a point
         let minDist = 10000;
         let minPoint = null;
         for (let p of data.points) {
@@ -43,30 +52,44 @@ export default class LevelController {
           }
         }
         data.highlighted = minPoint;
+        // If not, check if we're close to a line
+        if (!data.highlighted) {
+          minDist = 10000;
+          let minLine = null;
+          for (let l of data.lines) {
+            let d = l.distance(this.mousePosition);
+            if (d < this.lineSnapDistance) {
+              if (d < minDist) {
+                minDist = d;
+                minLine = l;
+              }
+            }
+          }
+          if (minLine) {
+            data.phantom = {
+              line: minLine,
+              point: minLine.nearestPoint(this.mousePosition)
+            };
+          } else {
+            data.phantom = null;
+          }
+        } else {
+          data.phantom = null;
+        }
       }
       return false;
     }
   }
 
   onClick(event) {
-    const w = this.canvas.offsetWidth;
-    const h = this.canvas.offsetHeight;
-    const ar = w / h;
-    const sx = w / this.scale;
-    const sy = (ar * h) / this.scale;
     this.clickThisTick = true;
-    this.clickPosition.x = Math.round(event.offsetX / sx);
-    this.clickPosition.y = Math.round(event.offsetY / sy);
+    this.clickPosition.x = event.offsetX;
+    this.clickPosition.y = event.offsetY;
   }
 
   onMove(event) {
-    const w = this.canvas.offsetWidth;
-    const h = this.canvas.offsetHeight;
-    const ar = w / h;
-    const sx = w / this.scale;
-    const sy = (ar * h) / this.scale;
     this.mouseDirty = true;
-    this.mousePosition.x = Math.round(event.offsetX / sx);
-    this.mousePosition.y = Math.round(event.offsetY / sy);
+    this.mousePosition.x = event.offsetX;
+    this.mousePosition.y = event.offsetY;
   }
 }

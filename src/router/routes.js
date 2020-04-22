@@ -30,27 +30,22 @@ const routes = [
       {
         name: "B2",
         path: "/1-2",
-        component: () => import("pages/levels/beginner/B1.vue")
+        component: () => import("pages/levels/beginner/B2.vue")
       },
       {
         name: "B3",
         path: "/1-3",
-        component: () => import("pages/levels/beginner/B1.vue")
+        component: () => import("pages/levels/beginner/B3.vue")
       },
       {
         name: "B4",
         path: "/1-4",
-        component: () => import("pages/levels/beginner/B1.vue")
+        component: () => import("pages/levels/beginner/B4.vue")
       },
       {
         name: "B5",
         path: "/1-5",
-        component: () => import("pages/levels/beginner/B1.vue")
-      },
-      {
-        name: "B6",
-        path: "/1-6",
-        component: () => import("pages/levels/beginner/B1.vue")
+        component: () => import("pages/levels/beginner/B5.vue")
       }
     ]
   }

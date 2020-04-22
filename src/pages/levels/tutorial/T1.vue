@@ -3,6 +3,7 @@
     <Level :levelId="id" v-on:checkResult="updateComplete" />
     <Hud
       :levelTitle="title"
+      :levelSubtitle="subtitle"
       :infoItems="axioms"
       :lastName="last"
       :nextName="next"
@@ -23,13 +24,14 @@ export default {
   data() {
     return {
       id: "0-1",
-      title: "Tutorial 01",
+      title: "Tutorial 1",
+      subtitle: "What's the Point?",
       last: null,
       next: "T2",
       axioms: [
         {
           objective: 1,
-          description: "There exist exactly three points.",
+          description: "There exist exactly one point.",
           complete: false
         }
       ]
@@ -38,10 +40,8 @@ export default {
   mounted() {},
   methods: {
     updateComplete(result) {
-      console.log(`Got results: ${JSON.stringify(result)}`);
       for (let a of this.axioms) {
         a.complete = result[a.objective - 1];
-        console.log(JSON.stringify(a));
       }
     }
   }

@@ -16,37 +16,33 @@ import Level from "../../../components/Level.vue";
 import Hud from "../../../components/Hud.vue";
 
 export default {
-  name: "B1",
+  name: "B2",
   components: {
     Level,
     Hud
   },
   data() {
     return {
-      id: "1-1",
-      title: "Beginner 1",
-      subtitle: "3 Point Geometry",
-      last: "T2",
-      next: "B2",
+      id: "1-2",
+      title: "Beginner 2",
+      subtitle: "4 Point Geometry",
+      last: "B1",
+      next: "B3",
       axioms: [
         {
           objective: 1,
-          description: "There exist exactly three points.",
+          description: "There exist exactly four points.",
           complete: false
         },
         {
           objective: 2,
-          description: "Two distinct points are on exactly one line",
+          description:
+            "Any two distinct points have exactly one line on both of them.",
           complete: false
         },
         {
           objective: 3,
-          description: "Not all the three points are collinear.",
-          complete: false
-        },
-        {
-          objective: 4,
-          description: "Two distinct lines are on at least one point.",
+          description: "Each line is on exactly two points.",
           complete: false
         }
       ]

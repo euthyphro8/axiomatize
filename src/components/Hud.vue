@@ -36,9 +36,13 @@
     </q-card>
 
     <q-card class="title">
-      <q-toolbar-title style="text-align: center; margin: 8px 0;">
-        {{ levelTitle }}
+      <q-toolbar-title style="text-align: center; margin-top:16px;">
+        {{ levelSubtitle }}
       </q-toolbar-title>
+      <hr />
+      <div class="italic" style="text-align: center; ">
+        <i>{{ levelTitle }}</i>
+      </div>
     </q-card>
 
     <q-card class="tools">
@@ -54,13 +58,13 @@
           Line
         </q-tooltip>
       </q-btn>
-      <q-btn style="width:48px;">
+      <q-btn style="width:48px;" @click="$store.commit('emitUndoCallback')">
         <q-icon name="undo" />
         <q-tooltip anchor="center left" self="center middle">
           Undo
         </q-tooltip>
       </q-btn>
-      <q-btn style="width:48px;">
+      <q-btn style="width:48px;" @click="$store.commit('emitRedoCallback')">
         <q-icon name="redo" />
         <q-tooltip anchor="center left" self="center middle">
           Redo
@@ -68,8 +72,10 @@
       </q-btn>
     </q-card>
     <q-card class="info">
-      <q-toolbar-title style="text-align: center; height: 32px;">
-        Axioms
+      <q-toolbar-title
+        style="text-align: center; height: 40px; margin-top: 12px; letter-spacing: 4px; font-weight: 100;"
+      >
+        AXIOMS
       </q-toolbar-title>
       <q-scroll-area
         class="col"
@@ -111,6 +117,7 @@ export default {
   },
   props: {
     levelTitle: String,
+    levelSubtitle: String,
     lastName: String,
     nextName: String,
     infoItems: Array
@@ -141,7 +148,7 @@ export default {
   left: calc(50% - 200px);
   right: calc(50% - 200px);
   width: 400px;
-  height: 48px;
+  height: 96px;
 }
 .nav {
   pointer-events: auto;
@@ -166,6 +173,9 @@ export default {
   left: calc(50% - 300px);
   right: calc(50% - 300px);
   width: 600px;
-  height: 182px;
+  height: 198px;
+}
+hr {
+  width: 80%;
 }
 </style>

@@ -47,9 +47,9 @@ module.exports = function(ctx) {
       config: {
         dark: true,
         brand: {
-          primary: "#f2c037",
-          secondary: "#d47e2f",
-          accent: "#e41414",
+          primary: "#F3BA38",
+          secondary: "#F37138",
+          accent: "#F33838",
 
           dark: "#1d1d1d",
 
